@@ -7,9 +7,10 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.get("/", (req, res) => {
-    res.send('<h1>Hello helen</h1>');
-});
+    res.redirect("/index.html");
+})
 
+app.use(express.static('public'));
 
 io.on('connection', (socket) => {
     console.log("someone connected");
